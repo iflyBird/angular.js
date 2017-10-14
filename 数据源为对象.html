@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>请选择学习网站：</p>
+    <select ng-model="selectedSite" ng-options="x for (x, y) in sites">
+    </select>
+    <h1>您的选择的值为：{{selectedSite}}</h1>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.sites = {
+            first : "博思智慧",
+            second : "学学习网",
+            third : "Codepad",
+             fortth:"cookies",
+            fifth:"seeeion",
+        };
+    });
+</script>
+</body>
+</html>

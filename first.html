@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<p ng-show="myVar">
+    姓名: <input type=text ng-model="myName"><br>
+    级别: <input type=text ng-model="myGrade"><br><br>
+    信息: {{myName + " " + myGrade}}
+</p>
+<button ng-click="toggle()">隐藏/显示</button>
+second.js：
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+$scope.myName = "宁泽涛";
+$scope.myGrade = "冠军";
+$scope.myVar = false;
+$scope.toggle = function() {
+$scope.myVar = !$scope.myVar;
+}
+});

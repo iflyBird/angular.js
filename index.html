@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312">
+    <link rel="stylesheet"
+          href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.m
+in.css">
+    <script
+            src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.mi
+n.js"></script>
+</head>
+<body>
+<div class="container">
+    <div ng-app="myApp" ng-controller="personCtrl">
+        <button class="btn btn-success" ng-click="editUser('new')">
+            <span class="glyphicon glyphicon-user"></span>查看奥运冠
+            军
+        </button>
+        <hr />
+        <div ng-include="'first.html'"></div>
+    </div>
+    <script src= "second.js" charset="gb2312"></script>
+</body>
+</html>

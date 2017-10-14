@@ -5,12 +5,16 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
     <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 </head>
 
 <body ng-controller="myCtrl">
 <!--4.在body被加载的时候，会去执行myCtrl控制器-->
-<table>
+<div class="container">
+<table class="table table-hover ">
     <thead>
     <tr>
         <th>序号</th>
@@ -33,7 +37,9 @@
     </tr>
     </tbody>
 </table>
+
 <button ng-click="addCart()">添加</button>
+</div>
 <script>
     //    1.声明一个模块
     var app = angular.module('myModule', ['ng']);
