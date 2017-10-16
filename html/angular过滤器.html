@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="ctl">
+    搜索:<input ng-model="query">
+    排序:<select ng-model="order">
+    <option value="name">姓名</option>
+    <option value="age">年龄</option>
+</select>
+    <ul class="persons">
+        <li ng-repeat="person in persons | filter:query | orderBy:order">
+            {{person.name}}
+
+            {{person.age}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function ctl($scope){
+        $scope.persons = [
+            {"name":"张梦雪","age":25},
+            {"name":"吴敏霞","age":18},
+            {"name":"施廷懋","age":20},
+            {"name":"龙清泉","age":30}
+        ];
+       $scope.order = "age";
+    }
+</script>
+</body>
+</html>

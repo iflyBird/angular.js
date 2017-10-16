@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--2.通过ngApp指令 完成模块的注册-->
+<html ng-app="myModule">
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body ng-controller="myCtrl">
+<!--4.在body被加载的时候，会去执行myCtrl控制器-->
+<div class="container">
+<table class="table table-hover ">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>商品</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>小计</th>
+        <th>删除</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="tmp in cart track by $index">
+        <td>{{$index}}</td>
+        <td>{{tmp.name}}</td>
+        <td>{{tmp.price}}</td>
+        <td>{{tmp.num}}</td>
+        <td>{{tmp.price*tmp.num}}</td>
+        <td><button ng-click="deleteCart($index)">删除</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<button ng-click="addCart()">添加</button>
+</div>
+<script>
+    //    1.声明一个模块
+    var app = angular.module('myModule', ['ng']);
+    //    3.控制器的声明
+    app.controller('myCtrl', function ($scope) {
+        //    5.操作模型数据
+        $scope.cart = [{
+            name: "苹果",
+            price: 4,
+            num: 2
+        },
+            {
+                name: "香蕉",
+                price: 6,
+                num: 1
+            },
+            {
+                name: "桃",
+                price: 5,
+                num: 3
+            }
+        ];
+        $scope.deleteCart = function ($index) {
+            $scope.cart.splice($index, 1);
+        }
+        $scope.addCart = function () {
+            $scope.cart.push({
+                name: "葡萄",
+                price: 3,
+                num: 4
+            });
+        }
+    });
+</script>
+</body>
+</html>

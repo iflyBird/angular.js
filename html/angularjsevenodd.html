@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <style>
+        table, td  {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+
+    <table>
+
+        <tr ng-repeat="x in names">
+            <td ng-if="$odd" style="background-color:red">
+                {{ $index + 1 }}</td>
+            <td ng-if="$even">
+                {{ $index + 1 }}</td>
+            <td ng-if="$odd" style="background-color:lightgreen">
+                {{ x.name }}</td>
+            <td ng-if="$even">
+                {{ x.name }}</td>
+            <td ng-if="$odd" style="background-color:lightyellow">
+                {{ x.height }}</td>
+            <td ng-if="$even">
+                {{ x.height }}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<script>
+    angular.module('myApp', []).controller('namesCtrl', function($scope) {
+        $scope.names = [
+            {name:'老胡', height:'190'},
+            {name:'老张',height:'174'},
+            {name:'老韩',height:'175'},
+            {name:'老马',height:'176'},
+            {name:'老丁',height:'171'},
+            {name:'老姜',height:'185'}
+        ];
+    })
+</script>
+
+</body>
+</html>
